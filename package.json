@@ -1,0 +1,14 @@
+{
+  "name": "qwen-hive",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local bridge: Anthropic /v1/messages (Claude Code) -> chat.qwen.ai via real Chrome (page.evaluate fetch only)",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/main.js",
+    "check:chrome": "bun run src/checks/chrome.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.50.0"
+  }
+}

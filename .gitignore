@@ -1,0 +1,20 @@
+node_modules/
+data/
+logs/
+*.log
+.DS_Store
+.env
+
+# internal dev journal — not for the public repo
+STATE.md
+
+# runtime artifacts
+*.pid
+*.out
+
+# local backups
+*.tar.gz
+*.zip
+
+# dev screenshots
+*.png
