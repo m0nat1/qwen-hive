@@ -31,6 +31,8 @@ Claude Code ──(Anthropic /v1/messages)──▶ QWEN HIVE ──(page.evalua
                     └────────── failover, rotation, WAF ◀─────┘
 ```
 
+![Architecture](assets/architecture.svg)
+
 > **Rule #1 (non-negotiable):** every request to chat.qwen.ai is executed as
 > `page.evaluate(() => fetch(...))` **inside a live Chrome tab** of a real logged-in profile.
 > Never from Node/Bun. The page injects anti-bot headers (`bx-ua`, `bx-umidtoken`, `bx-v`)
@@ -44,6 +46,7 @@ Claude Code ──(Anthropic /v1/messages)──▶ QWEN HIVE ──(page.evalua
 - 🛡️ **WAF (Baxia) awareness**: punish → 30-min freeze; daily quota → freeze until midnight; 3 strikes → account dead; automatic relaunch
 - ♻️ **Self-healing**: proactive JWT refresh before expiry, tab auto-relaunch, watchdog
 - ⚡ **Thinking toggle**: `HIVE_THINKING=1` (deep, default) / `=0` (fast)
+- 🔀 **Proxy support**: `HIVE_PROXY=http://user:pass@host:port` — fresh IP reputation for the whole pool
 - 🧪 39 unit tests (`bun test`), CI via GitHub Actions
 
 ## Quick start

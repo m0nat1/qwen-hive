@@ -82,11 +82,18 @@ export class Worker {
   async _start() {
     this.status = "starting";
     this.context?.close().catch(() => {});
+    // Прокси (опционально): HIVE_PROXY=http://user:pass@host:port — WAF-скоринг per-IP,
+    // поэтому прокси даёт свежую репутацию всем аккаунтам пула.
+    const proxyOpts = {};
+    if (process.env.HIVE_PROXY) {
+      proxyOpts.proxy = { server: process.env.HIVE_PROXY };
+    }
     this.context = await chromium.launchPersistentContext(profilePath(this.id), {
       executablePath: CHROME_PATH,
       headless: process.env.HIVE_HEADLESS === "1",
       args: [...CHROME_ARGS],
       viewport: { width: 1280, height: 900 },
+      ...proxyOpts,
     });
     this.page = this.context.pages()[0] || (await this.context.newPage());
     // Восстановленная сессия: закрываем все прежние вкладки и открываем свежую,

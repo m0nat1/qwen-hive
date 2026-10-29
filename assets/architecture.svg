@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="380" rx="12" fill="url(#bg)"/>
+
+  <!-- Claude Code -->
+  <rect x="40" y="130" width="180" height="120" rx="10" fill="#1f2937" stroke="#6366f1" stroke-width="2"/>
+  <text x="130" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="#e6edf3">Claude Code</text>
+  <text x="130" y="185" text-anchor="middle" font-size="11" fill="#8b949e">agentic loop:</text>
+  <text x="130" y="202" text-anchor="middle" font-size="11" fill="#8b949e">Bash · Edit · Write</text>
+  <text x="130" y="219" text-anchor="middle" font-size="11" fill="#8b949e">subagents · plan mode</text>
+  <text x="130" y="240" text-anchor="middle" font-size="10" fill="#7ee787">BASE_URL=127.0.0.1:8787</text>
+
+  <!-- Gateway -->
+  <rect x="330" y="115" width="220" height="150" rx="10" fill="#0b1f16" stroke="#f59e0b" stroke-width="2"/>
+  <text x="440" y="145" text-anchor="middle" font-size="17" font-weight="700" fill="#fbbf24">🐝 QWEN HIVE</text>
+  <text x="440" y="168" text-anchor="middle" font-size="11" fill="#8b949e">Anthropic /v1/messages</text>
+  <text x="440" y="186" text-anchor="middle" font-size="12" fill="#e6edf3">gateway :8787 (Bun)</text>
+  <text x="440" y="206" text-anchor="middle" font-size="10.5" fill="#8b949e">SSE stream · tool calls · failover</text>
+  <text x="440" y="223" text-anchor="middle" font-size="10.5" fill="#3fb950">throttle 6s · cooldown 20-28s</text>
+  <text x="440" y="240" text-anchor="middle" font-size="10.5" fill="#8b949e">HIVE_THINKING=1|0</text>
+
+  <!-- Workers pool -->
+  <rect x="660" y="40" width="210" height="58" rx="8" fill="#111827" stroke="#30363d"/>
+  <text x="765" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">worker acc-1</text>
+  <text x="765" y="83" text-anchor="middle" font-size="10.5" fill="#8b949e">headless Chrome tab</text>
+
+  <rect x="660" y="112" width="210" height="58" rx="8" fill="#111827" stroke="#30363d"/>
+  <text x="765" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">worker acc-2 … acc-5</text>
+  <text x="765" y="155" text-anchor="middle" font-size="10.5" fill="#8b949e">persistent profiles · pool</text>
+
+  <!-- Qwen -->
+  <rect x="660" y="290" width="210" height="70" rx="10" fill="#1a1040" stroke="#a78bfa" stroke-width="2"/>
+  <text x="765" y="318" text-anchor="middle" font-size="14" font-weight="700" fill="#c4b5fd">chat.qwen.ai</text>
+  <text x="765" y="338" text-anchor="middle" font-size="10.5" fill="#8b949e">Baxia WAF · bx-ua headers</text>
+  <text x="765" y="352" text-anchor="middle" font-size="10.5" fill="#8b949e">SSE: thinking + answer</text>
+
+  <!-- Arrows -->
+  <line x1="220" y1="185" x2="324" y2="185" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="272" y="172" text-anchor="middle" font-size="10" fill="#8b949e">Anthropic</text>
+
+  <line x1="550" y1="150" x2="654" y2="80" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="550" y1="200" x2="654" y2="150" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+
+  <line x1="765" y1="170" x2="765" y2="284" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="790" y="230" font-size="10" fill="#8b949e">page.evaluate(fetch)</text>
+
+  <!-- Rule #1 badge -->
+  <rect x="60" y="300" width="490" height="52" rx="8" fill="#231303" stroke="#f59e0b" stroke-dasharray="5,3"/>
+  <text x="80" y="322" font-size="11.5" font-weight="700" fill="#fbbf24">RULE #1 — non-negotiable</text>
+  <text x="80" y="340" font-size="10.5" fill="#d29922">Every Qwen request = page.evaluate(fetch) inside a live Chrome tab — never from Node/Bun</text>
+</svg>

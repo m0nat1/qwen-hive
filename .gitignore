@@ -18,3 +18,6 @@ STATE.md
 
 # dev screenshots
 *.png
+
+# CI needs a token with 'workflow' scope - pushed separately
+.github/workflows/
